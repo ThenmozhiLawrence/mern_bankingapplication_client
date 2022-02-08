@@ -43,10 +43,30 @@ class Dashboard extends Component {
                 letterSpacing: "1.5px",
                 marginTop: "1rem"
               }}
-              onClick={this.onDepositClick}
+              onClick={() =>
+                <div>
+                <input type="text" placeholder="enter amount to be deposited" id="deposit_amount" name="deposit_amount" 
+                style={{display:"none"}}/>
+                <button id="deposit_submit" style={{display:"none"}} 
+                  onClick={() => {
+                  const amount = document.getElementById("deposit_amount").value;
+                  user.balance = user.balance + parseInt(amount);
+                  alert(`Successfully deposited. \n
+                  Your current balance is ${user.balance} USD`);
+                  document.getElementById("deposit_amount").style.display='none';
+                  document.getElementById("deposit_submit").style.display='none';
+                  //this.setState({user.balance});
+                }}
+                className="btn btn-large waves-effect waves-light hoverable orange accent-3">
+                Submit</button>
+                </div>
+              }
               className="btn btn-large waves-effect waves-light hoverable green accent-3" >
+            
               Deposit 
-            </button>           
+              
+            </button>    
+
             <button
               style={{
                 width: "150px",
@@ -86,6 +106,7 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
   auth: state.auth
 });
+
 
 export default connect(
   mapStateToProps,
