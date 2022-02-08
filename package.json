@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
     "is-empty": "^1.2.0",
     "jwt-decode": "^2.2.0",
     "mern-auth": "file:..",
